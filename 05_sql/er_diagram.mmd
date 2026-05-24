@@ -1,0 +1,55 @@
+erDiagram
+    CATEGORIES ||--o{ PRODUCTS : contains
+    SUPPLIERS ||--o{ PRODUCTS : supplies
+    WAREHOUSES ||--o{ PRODUCTS : stores
+    CUSTOMERS ||--o{ ORDERS : places
+    ORDERS ||--o{ ORDER_ITEMS : includes
+    PRODUCTS ||--o{ ORDER_ITEMS : appears_in
+
+    CATEGORIES {
+        bigint id PK
+        bigint parent_id FK
+        varchar name
+        varchar slug
+        varchar cover_path
+    }
+    PRODUCTS {
+        bigint id PK
+        bigint category_id FK
+        bigint supplier_id FK
+        bigint warehouse_id FK
+        varchar name
+        varchar sku
+        decimal price
+        int quantity
+    }
+    SUPPLIERS {
+        bigint id PK
+        varchar name
+        varchar email
+    }
+    CUSTOMERS {
+        bigint id PK
+        varchar full_name
+        varchar email
+    }
+    WAREHOUSES {
+        bigint id PK
+        varchar title
+        varchar address
+        decimal latitude
+        decimal longitude
+    }
+    ORDERS {
+        bigint id PK
+        bigint customer_id FK
+        varchar number
+        decimal total_amount
+    }
+    ORDER_ITEMS {
+        bigint id PK
+        bigint order_id FK
+        bigint product_id FK
+        int quantity
+        decimal line_total
+    }

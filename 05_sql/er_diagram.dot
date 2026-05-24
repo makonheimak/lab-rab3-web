@@ -1,0 +1,21 @@
+digraph ER {
+  rankdir=LR;
+  graph [fontname="Arial"];
+  node [shape=record, fontname="Arial", fontsize=10];
+  edge [fontname="Arial", fontsize=9];
+
+  categories [label="{mshop_categories|id PK\nparent_id FK\nname\nslug\ncover_path}"];
+  suppliers [label="{mshop_suppliers|id PK\nname\nemail\nphone}"];
+  customers [label="{mshop_customers|id PK\nfull_name\nemail\nphone}"];
+  warehouses [label="{mshop_warehouses|id PK\ntitle\naddress\nlatitude\nlongitude}"];
+  products [label="{mshop_products|id PK\ncategory_id FK\nsupplier_id FK\nwarehouse_id FK\nname\nsku\nprice\nquantity}"];
+  orders [label="{mshop_orders|id PK\ncustomer_id FK\nnumber\nstatus\ntotal_amount}"];
+  items [label="{mshop_order_items|id PK\norder_id FK\nproduct_id FK\nunit_price\nquantity\nline_total}"];
+
+  categories -> products [label="1:N"];
+  suppliers -> products [label="1:N"];
+  warehouses -> products [label="1:N"];
+  customers -> orders [label="1:N"];
+  orders -> items [label="1:N"];
+  products -> items [label="1:N"];
+}
