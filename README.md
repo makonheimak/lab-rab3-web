@@ -4,21 +4,22 @@
 
 ## Структура
 
-- `02_package/ecommerce-suite` - основной Laravel-пакет.
-- `03_demo_laravel_project` - пример подключения пакета к Laravel-проекту.
-- `04_release_materials` - материалы для релиза.
-- `05_sql` - материалы по структуре базы данных.
+- `report` - материалы отчета.
+- `package/ecommerce-suite` - основной Laravel-пакет.
+- `demo-laravel-project` - пример подключения пакета к Laravel-проекту.
+- `release-materials` - материалы для релиза.
+- `sql` - материалы по структуре базы данных.
 
 Основная инструкция по запуску, проверке API, CRUD, сидеров, фасадов и тестов находится в:
 
 ```text
-02_package/ecommerce-suite/README.md
+package/ecommerce-suite/README.md
 ```
 
-## Короткая проверка
+## Краткая проверка
 
 1. Создать или открыть Laravel-проект.
-2. Подключить пакет из `02_package/ecommerce-suite` как path-зависимость.
+2. Подключить пакет из `package/ecommerce-suite` как path-зависимость.
 3. Выполнить публикацию ресурсов.
 4. Подключить `EcommerceSuiteSeeder` в `DatabaseSeeder`.
 5. Запустить:
