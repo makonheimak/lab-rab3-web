@@ -19,7 +19,7 @@
                 <div>
                     <label for="{{ $field }}">{{ $fieldLabels[$field] ?? $field }}</label>
                     <input id="{{ $field }}" name="{{ $field }}" value="{{ old($field, $item ? data_get($item, $field) : '') }}">
-                    @error($field)<p class="error">{{ $message }}</p>@enderror
+                    @error($field)<p class="error">Проверьте значение поля "{{ $fieldLabels[$field] ?? $field }}".</p>@enderror
                 </div>
             @endforeach
         </div>

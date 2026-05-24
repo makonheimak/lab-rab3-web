@@ -49,5 +49,26 @@
         </div>
     </div>
 
-    <div class="pagination">{{ $items->links() }}</div>
+    @if($items->hasPages() || $items->total() > 0)
+        <div class="pagination" style="display:flex; align-items:center; justify-content:space-between; gap:12px; flex-wrap:wrap;">
+            <div class="muted">
+                Показано {{ $items->firstItem() ?? 0 }}-{{ $items->lastItem() ?? 0 }} из {{ $items->total() }} записей
+            </div>
+            <div class="actions">
+                @if($items->onFirstPage())
+                    <span class="btn btn-light" style="opacity:.55; cursor:not-allowed;">Назад</span>
+                @else
+                    <a class="btn btn-light" href="{{ $items->previousPageUrl() }}">Назад</a>
+                @endif
+
+                <span class="btn btn-light" style="cursor:default;">Страница {{ $items->currentPage() }} из {{ $items->lastPage() }}</span>
+
+                @if($items->hasMorePages())
+                    <a class="btn btn-light" href="{{ $items->nextPageUrl() }}">Вперед</a>
+                @else
+                    <span class="btn btn-light" style="opacity:.55; cursor:not-allowed;">Вперед</span>
+                @endif
+            </div>
+        </div>
+    @endif
 @endsection
