@@ -4,7 +4,6 @@
 
 ## Структура
 
-- `01_report` - материалы отчета.
 - `02_package/ecommerce-suite` - основной Laravel-пакет.
 - `03_demo_laravel_project` - пример подключения пакета к Laravel-проекту.
 - `04_release_materials` - материалы для релиза.
